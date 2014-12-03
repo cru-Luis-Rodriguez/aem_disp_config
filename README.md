@@ -4,7 +4,9 @@ Configures AEM dispatcher for sites and redirects
 
 Requirements
 ------------
-
+Apache:
+Dispatcher install
+Dispatcher module
 Attributes
 ----------
 
