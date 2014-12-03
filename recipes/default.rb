@@ -1,4 +1,4 @@
-#
+
 # Cookbook Name:: aem_disp_config
 # Recipe:: default
 #
@@ -35,7 +35,7 @@ template "#{apache_home}/sites-available/cruorg" do
     variables(
               :host_name => node['hostname'],
               :host_ip => node['ipaddress'],
-              :host_alias => #{host_alias1}
+              :host_alias => '#{host_alias1}'
               )
 	notifies :restart, "service[apache2]", :immediately
 not_if node['ipaddress'].nil?
