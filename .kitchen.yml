@@ -13,8 +13,7 @@ suites:
   - name: default
     run_list:
       - recipe[aem_disp_config::default]
-    attributes:{
-    }
+    attributes:
     provisioner:
         client.rb:
             environment: aem_uat
