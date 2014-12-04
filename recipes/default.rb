@@ -41,7 +41,10 @@ template "#{apache_home}/sites-available/cruorg" do
 	      :server_admin => node['vhost']['email']
               )
 	notifies :restart, "service[apache2]", :immediately
-only_if node['ipaddress'].!nil?|| File.exist?("#{apache_home}/sites-available/") || node.chef_environment.include?("aem_prod")
+only_if do
+node['ipaddress'].!nil?
+File.exist?("#{apache_home}/sites-available/")
+node.chef_environment.include?("aem_prod")
 end
 
 template "#{apache_home}/sites-available/cruorg" do
