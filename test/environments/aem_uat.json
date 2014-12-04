@@ -1,0 +1,15 @@
+{
+  "name": "aem_uat",
+  "description": "My Chef uat environment",
+  "cookbook_versions": {
+
+  },
+  "json_class": "Chef::Environment",
+  "chef_type": "environment",
+  "default_attributes": {
+
+  },
+  "override_attributes": {"dispatcher":{"site":"staging.cru.org","alias1":"uat.cru.org","alias2":"uatdisp.cru.org"}}
+
+  }
+}

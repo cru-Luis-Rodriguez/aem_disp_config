@@ -4,6 +4,9 @@ driver:
 
 provisioner:
   name: chef_solo
+  environment_path: test/environments
+  client.rb:
+	enviroment: aem_uat
 
 platforms:
   - name: ubuntu-12.04
