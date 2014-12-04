@@ -1,4 +1,3 @@
-
 # Cookbook Name:: aem_disp_config
 # Recipe:: default
 #
@@ -35,12 +34,40 @@ template "#{apache_home}/sites-available/cruorg" do
     variables(
               :host_name => node['hostname'],
               :host_ip => node['ipaddress'],
-              :host_alias => '#{host_alias1}'
+              :host_alias => '#{host_alias1}',
+              :site => node => ['dispatcher']['site']
+              :site_alias1 => ['dispatcher']['alias1'],
+              :site_alias2 => ['dispatcher']['alias2'],
+	      :server_admin => ['vhost']['email']
               )
 	notifies :restart, "service[apache2]", :immediately
-not_if do 
-node['ipaddress'].nil?'
-!File.exist?("#{apache_home}/sites-available/")
+only_if do 
+node['ipaddress'].!nil?'
+File.exist?("#{apache_home}/sites-available/")
+node.chef_environment.include?("aem_prod")
 end
 end
+
+template "#{apache_home}/sites-available/cruorg" do
+    source 'cruorg_uat.erb'
+    owner "root"
+    group "root"
+    mode 0644
+    variables(
+              :host_name => node['hostname'],
+              :host_ip => node['ipaddress'],
+              :site => node => ['dispatcher']['site']
+              :site_alias1 => ['dispatcher']['alias1'],
+              :site_alias2 => ['dispatcher']['alias2'],
+              :server_admin => ['vhost']['email']
+              )
+        notifies :restart, "service[apache2]", :immediately
+only_if do
+node['ipaddress'].!nil?'
+File.exist?("#{apache_home}/sites-available/")
+node.chef_environment.include?("aem_dev")
+node.chef_environment.include?("aem_uat")
+end
+end
+
 
