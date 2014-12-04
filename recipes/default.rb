@@ -46,6 +46,7 @@ node['ipaddress'].!nil?
 File.exist?("#{apache_home}/sites-available/")
 node.chef_environment.include?("aem_prod")
 end
+end
 
 template "#{apache_home}/sites-available/cruorg" do
     source 'cruorg_uat.erb'
