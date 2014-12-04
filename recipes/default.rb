@@ -41,7 +41,7 @@ template "#{apache_home}/sites-available/cruorg" do
 	      :server_admin => node['vhost']['email']
               )
 	notifies :restart, "service[apache2]", :immediately
-	only_if node.chef_environment.include?("aem_prod")
+	only_if node.chef_environment.include?("aem_prod") || File.exist?("#{apache_home}/sites-available/")
 end
 
 template "#{apache_home}/sites-available/cruorg" do
@@ -58,7 +58,7 @@ template "#{apache_home}/sites-available/cruorg" do
               :server_admin => node['vhost']['email']
               )
         notifies :restart, "service[apache2]", :immediately
-	only_if node.chef_environment.include?("aem_uat")
+	only_if node.chef_environment.include?("aem_uat") || File.exist?("#{apache_home}/sites-available/")
 end
 
 template "#{apache_home}/sites-available/cruorg" do
@@ -75,7 +75,7 @@ template "#{apache_home}/sites-available/cruorg" do
               :server_admin => node['vhost']['email']
               )
         notifies :restart, "service[apache2]", :immediately
-	only_if node.chef_environment.include?("aem_dev")
+	only_if node.chef_environment.include?("aem_dev") || File.exist?("#{apache_home}/sites-available/")
 end
 
 
