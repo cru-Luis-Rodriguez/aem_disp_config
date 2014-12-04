@@ -38,6 +38,9 @@ template "#{apache_home}/sites-available/cruorg" do
               :host_alias => '#{host_alias1}'
               )
 	notifies :restart, "service[apache2]", :immediately
-not_if node['ipaddress'].nil?
+not_if do 
+node['ipaddress'].nil?'
+!File.exist?("#{apache_home}/sites-available/")
+end
 end
 
