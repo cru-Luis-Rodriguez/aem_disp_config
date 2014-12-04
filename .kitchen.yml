@@ -4,9 +4,7 @@ driver:
 
 provisioner:
   name: chef_solo
-  environments_path: test/environments
-  client.rb:
-	environment: aem_uat
+  environments_path: './test/environments'
 
 platforms:
   - name: ubuntu-12.04
@@ -15,4 +13,8 @@ suites:
   - name: default
     run_list:
       - recipe[aem_disp_config::default]
-    attributes:
+    attributes:{
+    }
+    provisioner:
+        client.rb:
+            environment: aem_uat
