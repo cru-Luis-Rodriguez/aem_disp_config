@@ -1,10 +1,12 @@
-<VirtualHost _default_:80>
-# This file is managed by chef server using cookbook https://github.com/cru-Luis-Rodriguez/aem_disp_config - site alias are set on chef server node Env.
+# This file is managed by chef server using cookbook https://github.com/cru-Luis-Rodriguez/aem_disp_config 
+#Site alias are set on chef server node Env
 #
+<VirtualHost _default_:80>
         ServerName www.<%= @site %>
-        ServerAlias <%= @host_ip %> <%= @host_name %>  <%= @site %> <%= @site_alias1  %> <%= @site_alias2 %> <%= @host_alias %>
-#ServerAdmin provided via chef role
-        ServerAdmin <%= server_admin %>
+        ServerAlias <%= @host_ip %> <%= @host_name %> <%= @site %> <%= @site_alias1  %> <%= @site_alias2 %> <%= @host_alias %>
+
+	#ServerAdmin provided via chef role
+        ServerAdmin <%= @server_admin %>
         DocumentRoot /var/www/html/<%= @site %>
 
         <Directory /var/www/html/<%= @site %>>
