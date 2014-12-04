@@ -35,10 +35,10 @@ template "#{apache_home}/sites-available/cruorg" do
               :host_name => node['hostname'],
               :host_ip => node['ipaddress'],
               :host_alias => '#{host_alias1}',
-              :site => node => ['dispatcher']['site'],
-              :site_alias1 => ['dispatcher']['alias1'],
-              :site_alias2 => ['dispatcher']['alias2'],
-	      :server_admin => ['vhost']['email']
+              :site => node['dispatcher']['site'],
+              :site_alias1 => node['dispatcher']['alias1'],
+              :site_alias2 => node['dispatcher']['alias2'],
+	      :server_admin => node['vhost']['email']
               )
 	notifies :restart, "service[apache2]", :immediately
 only_if do 
@@ -56,10 +56,10 @@ template "#{apache_home}/sites-available/cruorg" do
     variables(
               :host_name => node['hostname'],
               :host_ip => node['ipaddress'],
-              :site => node => ['dispatcher']['site'],
-              :site_alias1 => ['dispatcher']['alias1'],
-              :site_alias2 => ['dispatcher']['alias2'],
-              :server_admin => ['vhost']['email']
+              :site => node['dispatcher']['site'],
+              :site_alias1 => node['dispatcher']['alias1'],
+              :site_alias2 => node['dispatcher']['alias2'],
+              :server_admin => node['vhost']['email']
               )
         notifies :restart, "service[apache2]", :immediately
 only_if do
