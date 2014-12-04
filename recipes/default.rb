@@ -41,11 +41,7 @@ template "#{apache_home}/sites-available/cruorg" do
 	      :server_admin => node['vhost']['email']
               )
 	notifies :restart, "service[apache2]", :immediately
-only_if do
-node['ipaddress'].!nil?
-File.exist?("#{apache_home}/sites-available/")
-node.chef_environment.include?("aem_prod")
-end
+	only_if node.chef_environment.include?("aem_prod")
 end
 
 template "#{apache_home}/sites-available/cruorg" do
@@ -62,12 +58,25 @@ template "#{apache_home}/sites-available/cruorg" do
               :server_admin => node['vhost']['email']
               )
         notifies :restart, "service[apache2]", :immediately
-only_if do
-node['ipaddress'].!nil?
-File.exist?("#{apache_home}/sites-available/")
-node.chef_environment.include?("aem_dev")
-node.chef_environment.include?("aem_uat")
+	only_if node.chef_environment.include?("aem_uat")
 end
+
+template "#{apache_home}/sites-available/cruorg" do
+    source 'cruorg_uat.erb'
+    owner "root"
+    group "root"
+    mode 0644
+    variables(
+              :host_name => node['hostname'],
+              :host_ip => node['ipaddress'],
+              :site => node['dispatcher']['site'],
+              :site_alias1 => node['dispatcher']['alias1'],
+              :site_alias2 => node['dispatcher']['alias2'],
+              :server_admin => node['vhost']['email']
+              )
+        notifies :restart, "service[apache2]", :immediately
+	only_if node.chef_environment.include?("aem_dev")
 end
+
 
 
