@@ -4,8 +4,8 @@ driver:
 
 provisioner:
   name: chef_solo
-  environments_path: '../../test/environments'
-  roles_path: '../../test/roles'
+  environments_path: './test/environments'
+  roles_path: './test/roles'
 
 platforms:
   - name: ubuntu-12.04
