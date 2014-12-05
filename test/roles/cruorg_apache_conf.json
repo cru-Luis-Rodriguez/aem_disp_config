@@ -1,5 +1,6 @@
 {
-name": "cruorg_apache_conf",
+
+"name": "cruorg_apache_conf",
   "description": "",
   "json_class": "Chef::Role",
   "default_attributes": {
