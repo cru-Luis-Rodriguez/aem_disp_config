@@ -18,8 +18,8 @@ suites:
     run_list:
       - recipe[apt::default]
       - recipe[apache2::default]
-      - recipe[aem_disp_config::default]
       - recipe[aem_disp_config::test]
+      - recipe[aem_disp_config::default]
       - role[cruorg_apache_conf]
     attributes:
     provisioner:

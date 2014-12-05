@@ -5,8 +5,8 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-include_recipe 'apt'
-include_recipe 'apache2'
+#include_recipe 'apt'
+#include_recipe 'apache2'
 
 service 'apache2' do
     supports :status => true, :restart => true
