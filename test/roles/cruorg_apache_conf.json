@@ -1,0 +1,25 @@
+{
+name": "cruorg_apache_conf",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+
+  },
+  "override_attributes": {
+    "vhost": {
+      "email": "test.webmaster@test.org"
+    }
+  },
+  "chef_type": "role",
+  "run_list": [
+
+  ],
+  "env_run_lists": {
+    "aem_prod": [
+      "recipe[aem_disp_config]"
+    ],
+    "aem_uat": [
+      "recipe[aem_disp_config]"
+    ]
+  }
+}

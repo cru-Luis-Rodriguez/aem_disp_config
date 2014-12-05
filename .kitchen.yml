@@ -17,3 +17,4 @@ suites:
     provisioner:
         client.rb:
             environment: aem_uat
+            role: cruorg_apache_conf

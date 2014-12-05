@@ -9,7 +9,7 @@
   "default_attributes": {
 
   },
-  "override_attributes": {"dispatcher":{"site":"staging.cru.org","alias1":"uat.cru.org","alias2":"uatdisp.cru.org"}}
+  "override_attributes": {"dispatcher":{"site":"staging.test.org","alias1":"uat.test.org","alias2":"uatdisp.test.org"}}
 
   }
 }
