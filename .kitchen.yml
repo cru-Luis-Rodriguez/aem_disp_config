@@ -17,6 +17,7 @@ suites:
   - name: default
     run_list:
       - recipe[aem_disp_config::default]
+      - recipe[aem_disp_config::apt-get]
       - role[cruorg_apache_conf]
     attributes:
     provisioner:
