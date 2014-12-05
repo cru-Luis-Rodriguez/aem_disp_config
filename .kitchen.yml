@@ -1,20 +1,23 @@
 ---
 driver:
-  name: vagrant
+name: vagrant
+  customize:
+    memory: 1024
 
 provisioner:
-  name: chef_solo
-  environments_path: './test/environments'
-  roles_path: './test/roles'
+  name: chef_zero
+  environments_path: ../../test/environments
+  roles_path: ../../test/roles
 
 platforms:
   - name: ubuntu-12.04
+
 suites:
   - name: default
     run_list:
       - recipe[aem_disp_config::default]
+      - role[cruorg_apache_conf]
     attributes:
     provisioner:
         client.rb:
             environment: aem_uat
-            role: cruorg_apache_conf
