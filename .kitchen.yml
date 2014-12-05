@@ -6,8 +6,8 @@ name: vagrant
 
 provisioner:
   name: chef_zero
-  environments_path: ../../test/environments
-  roles_path: ../../test/roles
+  environments_path: '../../test/environments'
+  roles_path: '../../test/roles'
 
 platforms:
   - name: ubuntu-12.04
