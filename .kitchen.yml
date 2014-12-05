@@ -16,7 +16,6 @@ suites:
   - name: default
     run_list:
       - recipe[aem_disp_config::default]
-      - role[cruorg_apache_conf]
     attributes:
     provisioner:
         client.rb:
