@@ -36,11 +36,11 @@ template "#{apache_home}/sites-available/cruorg" do
     variables(
               :host_name => node['hostname'],
               :host_ip => node['ipaddress'],
-              :host_alias => #{host_alias1},
               :site => node['dispatcher']['site'],
               :site_alias1 => node['dispatcher']['alias1'],
               :site_alias2 => node['dispatcher']['alias2'],
-	      :server_admin => node['vhost']['email']
+	      :server_admin => node['vhost']['email'],
+              :host_alias => #{host_alias1}
               )
 	notifies :restart, "service[apache2]", :immediately
 	only_if { node.chef_environment.include?("aem_prod") && File.exist?("#{apache_home}/sites-available/") }
