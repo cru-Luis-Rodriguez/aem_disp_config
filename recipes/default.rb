@@ -22,7 +22,7 @@ elsif ["prod.dispatcher3"].include?(Chef::Config[:node_name])
 elsif ["prod.dispatcher4"].include?(Chef::Config[:node_name])
 	host_alias1 = "prod6dis4.cru.org"
 else
-	host_alias1 = "nil"
+	host_alias1 = "prod6dis.cru.org"
 end
 
 
@@ -36,7 +36,7 @@ template "#{apache_home}/sites-available/cruorg" do
     variables(
               :host_name => node['hostname'],
               :host_ip => node['ipaddress'],
-              :host_alias => '#{host_alias1}',
+              :host_alias => #{host_alias1},
               :site => node['dispatcher']['site'],
               :site_alias1 => node['dispatcher']['alias1'],
               :site_alias2 => node['dispatcher']['alias2'],
