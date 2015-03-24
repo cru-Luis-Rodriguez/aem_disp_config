@@ -180,7 +180,7 @@
         RewriteCond %{REQUEST_URI} !^/fonts
 	RewriteCond %{REQUEST_URI} !^/.*(\.png)$
         RewriteCond %{REQUEST_URI} !^/.*(\.ico)$
-        RewriteCond %{REQUEST_URI} !^/.*(\.css)$ #allows new css names to passthrough
+        RewriteCond %{REQUEST_URI} !^/.*\.css$
 	RewriteCond %{REQUEST_URI} !^/robots.txt$
 	#RewriteCond %{REQUEST_URI}  ^/.*(\.html)$
         RewriteRule ^/(.*)$ /content/cru/us/en/$1 [PT,L]
