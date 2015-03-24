@@ -230,5 +230,15 @@
           }
         }
       }
+    # Failover configuration
+    /health_check
+       {
+       # Page gets contacted when an instance returns a 500
+       /url "/how-to-know-god.html"
+       }
+     /retryDelay "1"
+     /numberOfRetries "5"
+     /unavailablePenalty "1"
+     /failover "1"
     }
   }
